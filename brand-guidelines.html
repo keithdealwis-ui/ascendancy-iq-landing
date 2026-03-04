@@ -775,16 +775,35 @@
 
         .robot-viewer {
             margin: 48px 0;
-            background: var(--robot-black);
+            background: var(--black-primary);
             border-radius: 16px;
             overflow: hidden;
             height: 500px;
             border: 1px solid rgba(255,255,255,0.08);
+            position: relative;
         }
 
         .robot-viewer spline-viewer {
             width: 100%;
             height: 100%;
+            display: block;
+            touch-action: pan-y;
+        }
+
+        /* Mobile robot fallback message */
+        .robot-mobile-hint {
+            display: none;
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: var(--gray-muted);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            text-align: center;
+            pointer-events: none;
         }
 
         .asset-info {
@@ -1127,6 +1146,61 @@
             font-size: 22px;
             cursor: pointer;
             padding: 6px;
+            z-index: 102;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--black-primary);
+            z-index: 101;
+            padding: 80px 28px 40px;
+            overflow-y: auto;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .mobile-menu.open {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+        }
+
+        .mobile-menu-links li {
+            margin-bottom: 8px;
+        }
+
+        .mobile-menu-links a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 0;
+            color: var(--white-pure);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 400;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: color 0.2s ease;
+        }
+
+        .mobile-menu-links a:hover {
+            color: var(--rag-green);
+        }
+
+        .mobile-menu-links .section-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--gray-muted);
         }
 
         /* Responsive */
@@ -1169,7 +1243,12 @@
             }
 
             .robot-viewer {
-                height: 350px;
+                height: 300px;
+                margin: 32px 0;
+            }
+
+            .robot-mobile-hint {
+                display: block;
             }
 
             .icon-grid {
@@ -1255,7 +1334,22 @@
     <!-- Mobile Navigation -->
     <div class="mobile-nav">
         <img src="logos/Logo Files/svg/White logo - no background.svg" alt="Ascendency IQ">
-        <button class="mobile-menu-btn" aria-label="Menu">&#9776;</button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">&#9776;</button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu-links">
+            <li><a href="#hero"><span class="section-num">00</span> Cover</a></li>
+            <li><a href="#vision"><span class="section-num">01</span> Vision</a></li>
+            <li><a href="#logo"><span class="section-num">02</span> The Logo</a></li>
+            <li><a href="#colors"><span class="section-num">03</span> Colors</a></li>
+            <li><a href="#typography"><span class="section-num">04</span> Typography</a></li>
+            <li><a href="#icons"><span class="section-num">05</span> Icons</a></li>
+            <li><a href="#personas"><span class="section-num">06</span> Personas</a></li>
+            <li><a href="#3d-assets"><span class="section-num">07</span> 3D Assets</a></li>
+            <li><a href="#application"><span class="section-num">08</span> Application</a></li>
+        </ul>
     </div>
 
     <main>
@@ -1785,7 +1879,9 @@
                 <spline-viewer
                     url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                     loading-anim-type="spinner-small-dark"
+                    hint
                 ></spline-viewer>
+                <div class="robot-mobile-hint">Drag to rotate • Pinch to zoom</div>
             </div>
 
             <div class="asset-info">
@@ -1856,6 +1952,35 @@
     <div class="copy-toast" id="copyToast">Copied to clipboard</div>
 
     <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let isMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.add('open');
+                mobileMenuBtn.innerHTML = '&#10005;'; // X icon
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('open');
+                mobileMenuBtn.innerHTML = '&#9776;'; // Hamburger icon
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu when clicking a link
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.remove('open');
+                mobileMenuBtn.innerHTML = '&#9776;';
+                document.body.style.overflow = '';
+            });
+        });
+
         // Active navigation on scroll
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-links a');
@@ -1893,6 +2018,28 @@
                 }, 2000);
             });
         }
+
+        // Lazy load Spline viewer when visible (better mobile performance)
+        const robotViewer = document.querySelector('.robot-viewer');
+        const splineViewer = robotViewer.querySelector('spline-viewer');
+
+        const robotObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Force reload the spline viewer when it comes into view
+                    const url = splineViewer.getAttribute('url');
+                    if (url && !splineViewer.hasAttribute('data-loaded')) {
+                        splineViewer.setAttribute('data-loaded', 'true');
+                        // Trigger a resize event to help Spline render correctly
+                        setTimeout(() => {
+                            window.dispatchEvent(new Event('resize'));
+                        }, 500);
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        robotObserver.observe(robotViewer);
     </script>
 </body>
 </html>
