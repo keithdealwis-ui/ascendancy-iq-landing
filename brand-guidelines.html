@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ascendency IQ — Brand Guidelines</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js"></script>
+    <style>
+        :root {
+            /* Core palette - Robot Black is primary */
+            --black-primary: #090909;
+            --black-pure: #000000;
+            --charcoal: #232323;
+            --white-pure: #ffffff;
+            --off-white: #f9f9f9;
+            --gray-light: #dfdfdf;
+
+            /* Accent colors */
+            --rag-green: #4affa5;
+            --gray-muted: #888888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--off-white);
+            color: var(--black-primary);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background: var(--black-primary);
+            padding: 40px 28px;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            overflow-y: auto;
+        }
+
+        .nav-brand {
+            margin-bottom: 40px;
+        }
+
+        .nav-brand img {
+            height: 28px;
+            width: auto;
+        }
+
+        .nav-brand span {
+            display: block;
+            color: var(--gray-muted);
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+
+        .nav-links {
+            list-style: none;
+            flex: 1;
+        }
+
+        .nav-links li {
+            margin-bottom: 2px;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            color: var(--gray-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 400;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--white-pure);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .nav-links a.active {
+            color: var(--white-pure);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .nav-links .section-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            opacity: 0.5;
+        }
+
+        .nav-footer {
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-footer p {
+            color: var(--gray-muted);
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        /* Main Content */
+        main {
+            margin-left: 260px;
+            min-height: 100vh;
+        }
+
+        section {
+            padding: 100px 80px 120px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--gray-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+
+        .lead {
+            font-size: 1.125rem;
+            color: var(--charcoal);
+            max-width: 680px;
+            line-height: 1.7;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: var(--black-primary);
+            color: var(--white-pure);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        .hero-logo {
+            position: absolute;
+            top: 80px;
+            right: 80px;
+            width: 260px;
+            height: auto;
+            opacity: 0.85;
+        }
+
+        #hero h1 {
+            font-size: clamp(5rem, 14vw, 12rem);
+            margin-bottom: 16px;
+        }
+
+        #hero .tagline {
+            font-size: 13px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--rag-green);
+            margin-bottom: 80px;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-logo {
+                top: 70px;
+                right: 28px;
+                width: 100px;
+            }
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 48px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-meta div {
+            font-size: 13px;
+        }
+
+        .hero-meta span {
+            display: block;
+            color: var(--gray-muted);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+        }
+
+        /* Vision Section */
+        #vision {
+            background: var(--white-pure);
+        }
+
+        .vision-quote {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-style: italic;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 40px 0;
+            color: var(--black-primary);
+        }
+
+        .vision-text {
+            max-width: 720px;
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+        }
+
+        .vision-text p {
+            margin-bottom: 20px;
+        }
+
+        .vision-text strong {
+            color: var(--black-primary);
+            font-weight: 600;
+        }
+
+        /* Logo Section */
+        #logo {
+            background: var(--off-white);
+        }
+
+        .logo-primary {
+            background: var(--off-white);
+            border: 1px solid var(--gray-light);
+            border-radius: 16px;
+            padding: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 48px 0;
+        }
+
+        .logo-primary img {
+            max-width: 280px;
+            width: 100%;
+            height: auto;
+        }
+
+        .logo-versions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 48px 0;
+        }
+
+        .logo-card {
+            border-radius: 12px;
+            padding: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            min-height: 180px;
+        }
+
+        .logo-card.light {
+            background: var(--white-pure);
+            border: 1px solid var(--gray-light);
+        }
+
+        .logo-card.dark {
+            background: var(--black-primary);
+        }
+
+        .logo-card img {
+            max-width: 180px;
+            width: 100%;
+            height: auto;
+        }
+
+        .logo-card-label {
+            position: absolute;
+            bottom: 14px;
+            left: 18px;
+            font-size: 11px;
+            color: var(--gray-muted);
+        }
+
+        .logo-card.dark .logo-card-label {
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Logo Usage */
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 48px 0;
+        }
+
+        .usage-item {
+            position: relative;
+        }
+
+        .usage-item-visual {
+            background: var(--gray-light);
+            border-radius: 10px;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .usage-item-visual.dont {
+            background: #f5eded;
+        }
+
+        .usage-item-visual img {
+            max-width: 100px;
+            opacity: 0.7;
+        }
+
+        .usage-item-visual.rotated img {
+            transform: rotate(-15deg);
+        }
+
+        .usage-item-visual.covered::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background: #7B68EE;
+            border-radius: 50%;
+            left: 30%;
+            clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+        }
+
+        .usage-item-visual.photo {
+            background: linear-gradient(135deg, #3a4a5c 0%, #5a7a6a 50%, #8b7a60 100%);
+        }
+
+        .usage-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .usage-badge.dont {
+            background: #ef4444;
+            color: white;
+        }
+
+        .usage-label {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .usage-label.dont {
+            color: #dc2626;
+        }
+
+        .usage-desc {
+            font-size: 13px;
+            color: var(--gray-muted);
+            margin-top: 3px;
+        }
+
+        /* Colors Section */
+        #colors {
+            background: var(--white-pure);
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 48px 0;
+        }
+
+        .color-swatch {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .color-swatch:hover {
+            transform: translateY(-3px);
+        }
+
+        .color-swatch:active {
+            transform: translateY(-1px);
+        }
+
+        .color-preview {
+            height: 180px;
+            border-radius: 12px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 16px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .color-swatch:hover .color-preview {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .color-preview.light-text {
+            color: var(--white-pure);
+        }
+
+        .color-preview.dark-text {
+            color: var(--black-primary);
+            border: 1px solid var(--gray-light);
+        }
+
+        .color-values {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            line-height: 1.6;
+            opacity: 0.75;
+        }
+
+        .color-info {
+            padding: 14px 0;
+        }
+
+        .color-name {
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .color-hex {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--gray-muted);
+        }
+
+        .copy-toast {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--black-primary);
+            color: var(--white-pure);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .copy-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Typography Section */
+        #typography {
+            background: var(--off-white);
+        }
+
+        .type-specimen {
+            margin: 48px 0;
+            padding: 40px;
+            background: var(--white-pure);
+            border: 1px solid var(--gray-light);
+            border-radius: 12px;
+        }
+
+        .type-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .type-meta span {
+            display: block;
+            font-size: 11px;
+            color: var(--gray-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+        }
+
+        .type-meta strong {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            font-weight: 400;
+        }
+
+        .type-link {
+            font-size: 12px;
+            color: var(--gray-muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s;
+        }
+
+        .type-link:hover {
+            color: var(--black-primary);
+        }
+
+        .type-display {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .type-body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            color: var(--charcoal);
+            max-width: 640px;
+        }
+
+        .type-weights {
+            display: flex;
+            gap: 20px;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .type-weight {
+            text-align: center;
+        }
+
+        .type-weight-sample {
+            font-size: 28px;
+            margin-bottom: 6px;
+        }
+
+        .type-weight-sample.display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .type-weight-sample.body {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .type-weight-label {
+            font-size: 11px;
+            color: var(--gray-muted);
+        }
+
+        /* Personas Section */
+        #personas {
+            background: var(--white-pure);
+        }
+
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .persona-card {
+            background: var(--off-white);
+            border: 1px solid var(--gray-light);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .persona-header {
+            padding: 28px;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .persona-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--charcoal);
+            color: var(--white-pure);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .persona-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .persona-title {
+            font-size: 13px;
+            color: var(--gray-muted);
+        }
+
+        .persona-body {
+            padding: 28px;
+        }
+
+        .persona-desc {
+            font-size: 14px;
+            color: var(--charcoal);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .persona-section {
+            margin-bottom: 20px;
+        }
+
+        .persona-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .persona-section-label {
+            font-size: 10px;
+            color: var(--gray-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 6px;
+        }
+
+        .persona-section-text {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .persona-section-text.italic {
+            font-style: italic;
+            color: var(--gray-muted);
+        }
+
+        .dual-narrative {
+            background: var(--off-white);
+            border: 1px solid var(--gray-light);
+            border-radius: 12px;
+            padding: 32px;
+            margin-top: 48px;
+        }
+
+        .dual-narrative-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .dual-narrative-subtitle {
+            font-size: 14px;
+            color: var(--charcoal);
+            margin-bottom: 24px;
+        }
+
+        .dual-narrative-example {
+            background: var(--white-pure);
+            border: 1px solid var(--gray-light);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .dual-narrative-example p {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .dual-narrative-example .hook {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .dual-narrative-example .annotation {
+            font-size: 12px;
+            color: var(--rag-green);
+            margin-bottom: 16px;
+        }
+
+        .dual-narrative-example .detail {
+            color: var(--gray-muted);
+            font-size: 13px;
+        }
+
+        .dual-narrative-example .annotation-alt {
+            font-size: 12px;
+            color: var(--rag-green);
+        }
+
+        /* 3D Assets Section */
+        #3d-assets {
+            background: var(--black-primary);
+            color: var(--white-pure);
+        }
+
+        #3d-assets .section-label {
+            color: var(--gray-muted);
+        }
+
+        #3d-assets .lead {
+            color: var(--gray-muted);
+        }
+
+        .robot-viewer {
+            margin: 48px 0;
+            background: var(--robot-black);
+            border-radius: 16px;
+            overflow: hidden;
+            height: 500px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .robot-viewer spline-viewer {
+            width: 100%;
+            height: 100%;
+        }
+
+        .asset-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .asset-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .asset-label {
+            font-size: 11px;
+            color: var(--gray-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .asset-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--rag-green);
+            word-break: break-all;
+        }
+
+        .asset-list {
+            list-style: none;
+            font-size: 13px;
+            color: var(--gray-muted);
+        }
+
+        .asset-list li {
+            padding: 6px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .asset-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--rag-green);
+        }
+
+        /* Icons Section */
+        #icons {
+            background: var(--white-pure);
+        }
+
+        .icon-guidelines {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 48px 0;
+        }
+
+        .icon-guideline-card {
+            background: var(--off-white);
+            border: 1px solid var(--gray-light);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .icon-guideline-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .icon-guideline-card p {
+            font-size: 13px;
+            color: var(--gray-muted);
+            line-height: 1.5;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+            margin: 48px 0;
+        }
+
+        .icon-item {
+            background: var(--off-white);
+            border: 1px solid var(--gray-light);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .icon-item:hover {
+            border-color: var(--charcoal);
+            transform: translateY(-2px);
+        }
+
+        .icon-item svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--black-primary);
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .icon-item span {
+            font-size: 11px;
+            color: var(--gray-muted);
+            text-align: center;
+        }
+
+        .icon-color-examples {
+            display: flex;
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .icon-color-example {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 28px;
+            border-radius: 12px;
+        }
+
+        .icon-color-example.on-light {
+            background: var(--off-white);
+            border: 1px solid var(--gray-light);
+        }
+
+        .icon-color-example.on-dark {
+            background: var(--black-primary);
+        }
+
+        .icon-color-example.on-dark svg {
+            stroke: var(--white-pure);
+        }
+
+        .icon-color-example.on-dark.accent svg {
+            stroke: var(--rag-green);
+        }
+
+        .icon-color-example span {
+            font-size: 13px;
+        }
+
+        .icon-color-example.on-dark span {
+            color: var(--white-pure);
+        }
+
+        /* Application Section */
+        #application {
+            background: var(--off-white);
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 48px 0;
+        }
+
+        .business-card {
+            border-radius: 10px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 240px;
+        }
+
+        .business-card.front {
+            background: var(--off-white);
+            border: 1px solid var(--gray-light);
+        }
+
+        .business-card.front img {
+            max-width: 240px;
+        }
+
+        .business-card.back {
+            background: var(--off-white);
+            border: 1px solid var(--gray-light);
+            align-items: flex-start;
+            padding: 32px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: auto;
+        }
+
+        .card-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+
+        .card-title {
+            font-size: 12px;
+            color: var(--gray-muted);
+        }
+
+        .card-icon img {
+            width: 80px;
+            height: auto;
+            opacity: 0.15;
+        }
+
+        .card-contact {
+            margin-top: auto;
+            font-size: 12px;
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        /* Dark business card variant */
+        .app-dark {
+            background: var(--black-primary);
+            border-radius: 12px;
+            padding: 56px;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 320px;
+        }
+
+        .app-dark img {
+            max-width: 100px;
+            margin-bottom: 40px;
+        }
+
+        .app-dark .contact-info {
+            text-align: center;
+            color: var(--white-pure);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* Download Section */
+        .download-bar {
+            margin-top: 56px;
+            padding: 28px;
+            background: var(--white-pure);
+            border: 1px solid var(--gray-light);
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .download-info h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+
+        .download-info p {
+            font-size: 13px;
+            color: var(--gray-muted);
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 12px 24px;
+            background: var(--black-primary);
+            color: var(--white-pure);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .download-btn:hover {
+            background: var(--charcoal);
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black-primary);
+            color: var(--white-pure);
+            padding: 56px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer img {
+            height: 24px;
+        }
+
+        footer p {
+            font-size: 12px;
+            color: var(--gray-muted);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--black-primary);
+            padding: 14px 20px;
+            z-index: 100;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-nav img {
+            height: 22px;
+        }
+
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: var(--white-pure);
+            font-size: 22px;
+            cursor: pointer;
+            padding: 6px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            nav {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: flex;
+            }
+
+            main {
+                margin-left: 0;
+                padding-top: 56px;
+            }
+
+            section {
+                padding: 60px 28px 80px;
+            }
+
+            .color-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .usage-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .logo-versions {
+                grid-template-columns: 1fr;
+            }
+
+            .persona-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .asset-info {
+                grid-template-columns: 1fr;
+            }
+
+            .robot-viewer {
+                height: 350px;
+            }
+
+            .icon-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .icon-guidelines {
+                grid-template-columns: 1fr;
+            }
+
+            .icon-color-examples {
+                flex-direction: column;
+            }
+
+            footer {
+                padding: 40px 28px;
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            section {
+                padding: 48px 20px 64px;
+            }
+
+            .color-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .usage-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .type-weights {
+                flex-wrap: wrap;
+            }
+
+            .icon-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+
+            .icon-item {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Desktop Navigation -->
+    <nav>
+        <div class="nav-brand">
+            <img src="logos/Logo Files/svg/White logo - no background.svg" alt="Ascendency IQ">
+            <span>Brand Guidelines</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero" class="active"><span class="section-num">00</span> Cover</a></li>
+            <li><a href="#vision"><span class="section-num">01</span> Vision</a></li>
+            <li><a href="#logo"><span class="section-num">02</span> The Logo</a></li>
+            <li><a href="#colors"><span class="section-num">03</span> Colors</a></li>
+            <li><a href="#typography"><span class="section-num">04</span> Typography</a></li>
+            <li><a href="#icons"><span class="section-num">05</span> Icons</a></li>
+            <li><a href="#personas"><span class="section-num">06</span> Personas</a></li>
+            <li><a href="#3d-assets"><span class="section-num">07</span> 3D Assets</a></li>
+            <li><a href="#application"><span class="section-num">08</span> Application</a></li>
+        </ul>
+        <div class="nav-footer">
+            <p>Version 1.0<br>March 2026</p>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <img src="logos/Logo Files/svg/White logo - no background.svg" alt="Ascendency IQ">
+        <button class="mobile-menu-btn" aria-label="Menu">&#9776;</button>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <h1>Brand<br>Guidelines</h1>
+            <p class="tagline">Your AI Workforce. Deployed.</p>
+            <div class="hero-meta">
+                <div>
+                    <span>Brand</span>
+                    Ascendency IQ
+                </div>
+                <div>
+                    <span>Version</span>
+                    1.0
+                </div>
+                <div>
+                    <span>Updated</span>
+                    March 2026
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision Section -->
+        <section id="vision">
+            <p class="section-label">01 — Vision</p>
+            <h2>Vision</h2>
+            <blockquote class="vision-quote">
+                A world where a single person with the right AI workforce can build, market, and scale a business that previously required fifty people.
+            </blockquote>
+            <div class="vision-text">
+                <p>Not by working harder. Not by automating the edges. By compressing the entire workforce — engineering, design, marketing, operations — into an autonomous system that executes at enterprise grade, for pennies a day.</p>
+                <p><strong>Ascendency IQ</strong> is the platform that makes that real. Built by one person, to run one person's business, then packaged for everyone else who wants the same leverage.</p>
+            </div>
+        </section>
+
+        <!-- Logo Section -->
+        <section id="logo">
+            <p class="section-label">02 — The Logo</p>
+            <h2>The Logo</h2>
+            <p class="lead">Our logo is an integral part of our brand, and should be used thoughtfully and consistently. Our logo is often displayed in its full-color format and in its entirety.</p>
+
+            <div class="logo-primary">
+                <img src="logos/Logo Files/svg/Color logo - no background.svg" alt="Ascendency IQ Logo">
+            </div>
+
+            <h3>Logo Versions</h3>
+            <p class="lead" style="margin-bottom: 24px;">Our full-color logo is our primary colorway — but only use it when displaying the logo on a white background. When displaying the logo on a photo or colored background, use the white or black version.</p>
+
+            <div class="logo-versions">
+                <div class="logo-card light">
+                    <img src="logos/Logo Files/svg/Black logo - no background.svg" alt="Black Logo">
+                    <span class="logo-card-label">Light backgrounds</span>
+                </div>
+                <div class="logo-card dark">
+                    <img src="logos/Logo Files/svg/White logo - no background.svg" alt="White Logo">
+                    <span class="logo-card-label">Dark backgrounds</span>
+                </div>
+            </div>
+
+            <h3>Logo Usage</h3>
+            <p class="lead" style="margin-bottom: 24px;">Avoid rotating the logo, distorting it, partially covering it up, or displaying it directly on a photo.</p>
+
+            <div class="usage-grid">
+                <div class="usage-item">
+                    <div class="usage-item-visual dont rotated">
+                        <img src="logos/Logo Files/svg/Black logo - no background.svg" alt="Rotated logo - don't">
+                        <span class="usage-badge dont">&#10005;</span>
+                    </div>
+                    <p class="usage-label dont">Don't</p>
+                    <p class="usage-desc">Rotate the logo</p>
+                </div>
+                <div class="usage-item">
+                    <div class="usage-item-visual dont covered">
+                        <img src="logos/Logo Files/svg/Black logo - no background.svg" alt="Covered logo - don't">
+                        <span class="usage-badge dont">&#10005;</span>
+                    </div>
+                    <p class="usage-label dont">Don't</p>
+                    <p class="usage-desc">Partially cover the logo</p>
+                </div>
+                <div class="usage-item">
+                    <div class="usage-item-visual dont photo">
+                        <img src="logos/Logo Files/svg/Black logo - no background.svg" alt="Logo on photo - don't" style="opacity: 0.5;">
+                        <span class="usage-badge dont">&#10005;</span>
+                    </div>
+                    <p class="usage-label dont">Don't</p>
+                    <p class="usage-desc">Place directly on photos</p>
+                </div>
+            </div>
+
+            <div class="download-bar">
+                <div class="download-info">
+                    <h4>Download Logo Package</h4>
+                    <p>SVG, PNG, and PDF formats included</p>
+                </div>
+                <a href="logos/Logo Files/" class="download-btn">
+                    Download All
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Colors Section -->
+        <section id="colors">
+            <p class="section-label">03 — Colors</p>
+            <h2>Colors</h2>
+            <p class="lead">Our brand is made up of the following colors. Any colors outside of this palette must be used with discretion. Click any swatch to copy the hex code.</p>
+
+            <div class="color-grid">
+                <div class="color-swatch" onclick="copyColor('#090909', 'Robot Black')">
+                    <div class="color-preview light-text" style="background: #090909;">
+                        <div class="color-values">
+                            rgb(9, 9, 9)<br>
+                            hsl(0, 0%, 4%)
+                        </div>
+                    </div>
+                    <div class="color-info">
+                        <p class="color-name">Robot Black (Primary)</p>
+                        <p class="color-hex">#090909</p>
+                    </div>
+                </div>
+
+                <div class="color-swatch" onclick="copyColor('#f9f9f9', 'Off-White')">
+                    <div class="color-preview dark-text" style="background: #f9f9f9;">
+                        <div class="color-values">
+                            rgb(249, 249, 249)<br>
+                            hsl(0, 0%, 98%)
+                        </div>
+                    </div>
+                    <div class="color-info">
+                        <p class="color-name">Off-White</p>
+                        <p class="color-hex">#f9f9f9</p>
+                    </div>
+                </div>
+
+                <div class="color-swatch" onclick="copyColor('#232323', 'Charcoal')">
+                    <div class="color-preview light-text" style="background: #232323;">
+                        <div class="color-values">
+                            rgb(35, 35, 35)<br>
+                            hsl(0, 0%, 14%)
+                        </div>
+                    </div>
+                    <div class="color-info">
+                        <p class="color-name">Charcoal</p>
+                        <p class="color-hex">#232323</p>
+                    </div>
+                </div>
+
+                <div class="color-swatch" onclick="copyColor('#000000', 'Pure Black')">
+                    <div class="color-preview light-text" style="background: #000000;">
+                        <div class="color-values">
+                            rgb(0, 0, 0)<br>
+                            hsl(0, 0%, 0%)
+                        </div>
+                    </div>
+                    <div class="color-info">
+                        <p class="color-name">Pure Black</p>
+                        <p class="color-hex">#000000</p>
+                    </div>
+                </div>
+
+                <div class="color-swatch" onclick="copyColor('#ffffff', 'Pure White')">
+                    <div class="color-preview dark-text" style="background: #ffffff;">
+                        <div class="color-values">
+                            rgb(255, 255, 255)<br>
+                            hsl(0, 0%, 100%)
+                        </div>
+                    </div>
+                    <div class="color-info">
+                        <p class="color-name">Pure White</p>
+                        <p class="color-hex">#ffffff</p>
+                    </div>
+                </div>
+
+                <div class="color-swatch" onclick="copyColor('#dfdfdf', 'Light Gray')">
+                    <div class="color-preview dark-text" style="background: #dfdfdf;">
+                        <div class="color-values">
+                            rgb(223, 223, 223)<br>
+                            hsl(0, 0%, 88%)
+                        </div>
+                    </div>
+                    <div class="color-info">
+                        <p class="color-name">Light Gray</p>
+                        <p class="color-hex">#dfdfdf</p>
+                    </div>
+                </div>
+
+                <!-- Accent color -->
+                <div class="color-swatch" onclick="copyColor('#4affa5', 'RAG Green')">
+                    <div class="color-preview dark-text" style="background: #4affa5;">
+                        <div class="color-values">
+                            rgb(74, 255, 165)<br>
+                            hsl(150, 100%, 65%)
+                        </div>
+                    </div>
+                    <div class="color-info">
+                        <p class="color-name">RAG Green</p>
+                        <p class="color-hex">#4affa5</p>
+                    </div>
+                </div>
+
+                <!-- Additional accent colors -->
+                <div class="color-swatch" onclick="copyColor('#6B7280', 'Steel Gray')">
+                    <div class="color-preview light-text" style="background: #6B7280;">
+                        <div class="color-values">
+                            rgb(107, 114, 128)<br>
+                            hsl(220, 9%, 46%)
+                        </div>
+                    </div>
+                    <div class="color-info">
+                        <p class="color-name">Steel Gray</p>
+                        <p class="color-hex">#6B7280</p>
+                    </div>
+                </div>
+
+                <div class="color-swatch" onclick="copyColor('#1A1A1A', 'Onyx')">
+                    <div class="color-preview light-text" style="background: #1A1A1A;">
+                        <div class="color-values">
+                            rgb(26, 26, 26)<br>
+                            hsl(0, 0%, 10%)
+                        </div>
+                    </div>
+                    <div class="color-info">
+                        <p class="color-name">Onyx</p>
+                        <p class="color-hex">#1A1A1A</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography Section -->
+        <section id="typography">
+            <p class="section-label">04 — Typography</p>
+            <h2>Typography</h2>
+            <p class="lead">Typography is the work of typesetters, typographers, graphic designers, art directors, comic book artists, graffiti artists and now anyone who arranges words, letters, numbers and symbols for publication, display or distribution.</p>
+
+            <div class="type-specimen">
+                <div class="type-header">
+                    <div class="type-meta">
+                        <span>Header Font</span>
+                        <strong>Space Grotesk</strong>
+                    </div>
+                    <a href="https://fonts.google.com/specimen/Space+Grotesk" target="_blank" class="type-link">
+                        Google Fonts
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
+                </div>
+                <p class="type-display">Header text example</p>
+                <div class="type-weights">
+                    <div class="type-weight">
+                        <p class="type-weight-sample display" style="font-weight: 400;">Aa</p>
+                        <p class="type-weight-label">400</p>
+                    </div>
+                    <div class="type-weight">
+                        <p class="type-weight-sample display" style="font-weight: 500;">Aa</p>
+                        <p class="type-weight-label">500</p>
+                    </div>
+                    <div class="type-weight">
+                        <p class="type-weight-sample display" style="font-weight: 600;">Aa</p>
+                        <p class="type-weight-label">600</p>
+                    </div>
+                    <div class="type-weight">
+                        <p class="type-weight-sample display" style="font-weight: 700;">Aa</p>
+                        <p class="type-weight-label">700</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="type-specimen">
+                <div class="type-header">
+                    <div class="type-meta">
+                        <span>Body Font</span>
+                        <strong>DM Sans</strong>
+                    </div>
+                    <a href="https://fonts.google.com/specimen/DM+Sans" target="_blank" class="type-link">
+                        Google Fonts
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
+                </div>
+                <p class="type-body">Body font example. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.</p>
+                <div class="type-weights">
+                    <div class="type-weight">
+                        <p class="type-weight-sample body" style="font-weight: 300;">Aa</p>
+                        <p class="type-weight-label">300</p>
+                    </div>
+                    <div class="type-weight">
+                        <p class="type-weight-sample body" style="font-weight: 400;">Aa</p>
+                        <p class="type-weight-label">400</p>
+                    </div>
+                    <div class="type-weight">
+                        <p class="type-weight-sample body" style="font-weight: 500;">Aa</p>
+                        <p class="type-weight-label">500</p>
+                    </div>
+                    <div class="type-weight">
+                        <p class="type-weight-sample body" style="font-weight: 600;">Aa</p>
+                        <p class="type-weight-label">600</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Icons Section -->
+        <section id="icons">
+            <p class="section-label">05 — Icons</p>
+            <h2>Icons</h2>
+            <p class="lead">A curated set of icons approved for use with the Ascendency IQ brand. All icons use a consistent 1.5px stroke weight.</p>
+
+            <div class="icon-guidelines">
+                <div class="icon-guideline-card">
+                    <h4>Stroke Weight</h4>
+                    <p>Use 1.5px stroke weight consistently across all icons for visual harmony.</p>
+                </div>
+                <div class="icon-guideline-card">
+                    <h4>Sizing</h4>
+                    <p>Standard sizes: 16px, 20px, 24px, 28px. Scale proportionally.</p>
+                </div>
+                <div class="icon-guideline-card">
+                    <h4>Corners</h4>
+                    <p>Use rounded line caps and joins to maintain a friendly, modern feel.</p>
+                </div>
+            </div>
+
+            <h3>Approved Icons</h3>
+            <div class="icon-grid">
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <span>Layers</span>
+                </div>
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                    <span>Settings</span>
+                </div>
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                    </svg>
+                    <span>Workflow</span>
+                </div>
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"/>
+                        <polyline points="8 6 2 12 8 18"/>
+                    </svg>
+                    <span>Code</span>
+                </div>
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21"/>
+                        <line x1="12" y1="17" x2="12" y2="21"/>
+                    </svg>
+                    <span>Monitor</span>
+                </div>
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                    </svg>
+                    <span>Box</span>
+                </div>
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                    <span>Globe</span>
+                </div>
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <span>Check</span>
+                </div>
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                    <span>Bolt</span>
+                </div>
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"/>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                    <span>Send</span>
+                </div>
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span>Users</span>
+                </div>
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="3" y1="9" x2="21" y2="9"/>
+                        <line x1="9" y1="21" x2="9" y2="9"/>
+                    </svg>
+                    <span>Layout</span>
+                </div>
+            </div>
+
+            <h3>Color Usage</h3>
+            <p class="lead" style="margin-bottom: 24px;">Icons should adapt to their background for optimal contrast.</p>
+
+            <div class="icon-color-examples">
+                <div class="icon-color-example on-light">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" stroke-width="1.5" fill="none">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                    <span>On light backgrounds</span>
+                </div>
+                <div class="icon-color-example on-dark">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" fill="none">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                    <span>On dark backgrounds</span>
+                </div>
+                <div class="icon-color-example on-dark accent">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" fill="none">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                    <span>RAG Green accent</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personas Section -->
+        <section id="personas">
+            <p class="section-label">06 — Personas</p>
+            <h2>Personas</h2>
+            <p class="lead">Two primary personas with different needs, objections, and conversion paths.</p>
+
+            <div class="persona-grid">
+                <!-- Marcus Chen -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">MC</div>
+                        <div>
+                            <p class="persona-name">Marcus Chen</p>
+                            <p class="persona-title">The Technical CTO</p>
+                        </div>
+                    </div>
+                    <div class="persona-body">
+                        <p class="persona-desc">CTO / VP Engineering at Series A/B SaaS (20-80 people). US/UK/EU tech hubs. Skeptical. Evaluates tools like an engineer.</p>
+
+                        <div class="persona-section">
+                            <p class="persona-section-label">Cares about</p>
+                            <p class="persona-section-text">Architecture integrity, security surface, auditability, integration with existing stack</p>
+                        </div>
+
+                        <div class="persona-section">
+                            <p class="persona-section-label">What converts him</p>
+                            <p class="persona-section-text">GitHub repo, real commit history, architecture docs, 30-min technical call with no slides</p>
+                        </div>
+
+                        <div class="persona-section">
+                            <p class="persona-section-label">His objection</p>
+                            <p class="persona-section-text italic">"This is impressive but I can't put this in front of my board without understanding the failure modes."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sandra Okafor -->
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <div class="persona-avatar">SO</div>
+                        <div>
+                            <p class="persona-name">Sandra Okafor</p>
+                            <p class="persona-title">The Non-Technical Founder</p>
+                        </div>
+                    </div>
+                    <div class="persona-body">
+                        <p class="persona-desc">Founder/CEO at bootstrapped or seed-stage (5-25 people). Dubai, London, Lagos, Singapore. Buys people, not products.</p>
+
+                        <div class="persona-section">
+                            <p class="persona-section-label">Cares about</p>
+                            <p class="persona-section-text">Will it actually work, cost vs developer, accountability, seeing it work before committing</p>
+                        </div>
+
+                        <div class="persona-section">
+                            <p class="persona-section-label">What converts her</p>
+                            <p class="persona-section-text">Cost comparison (£60-80k vs $0.30/day), 20-min video demo, Keith's credentials, clear onboarding promise</p>
+                        </div>
+
+                        <div class="persona-section">
+                            <p class="persona-section-label">Her objection</p>
+                            <p class="persona-section-text italic">"I've tried automation tools before and they always need a technical person to maintain them."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dual Narrative Strategy -->
+            <div class="dual-narrative">
+                <p class="dual-narrative-title">Dual-Narrative Strategy</p>
+                <p class="dual-narrative-subtitle">Lead with the outcome (Sandra stops scrolling). Prove it with the mechanism (Marcus keeps reading).</p>
+
+                <div class="dual-narrative-example">
+                    <p class="hook">"My engineering team shipped 4 PRs yesterday. I sent one Telegram message."</p>
+                    <p class="annotation">&#8593; Sandra is hooked</p>
+
+                    <p class="detail">"Here's exactly how it works: HMAC-signed task queue, auto-polling sidecar every 15s, append-only audit trail..."</p>
+                    <p class="annotation-alt">&#8593; Marcus stays for the architecture</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3D Assets Section -->
+        <section id="3d-assets">
+            <p class="section-label">07 — 3D Assets</p>
+            <h2>The Robot</h2>
+            <p class="lead">Our 3D robot mascot represents the AI workforce. Interactive, responsive, and built with Spline.</p>
+
+            <div class="robot-viewer">
+                <spline-viewer
+                    url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                    loading-anim-type="spinner-small-dark"
+                ></spline-viewer>
+            </div>
+
+            <div class="asset-info">
+                <div class="asset-card">
+                    <p class="asset-label">Spline Scene URL</p>
+                    <code class="asset-code">https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode</code>
+                </div>
+                <div class="asset-card">
+                    <p class="asset-label">Usage</p>
+                    <ul class="asset-list">
+                        <li>Hero sections and landing pages</li>
+                        <li>Feature highlights</li>
+                        <li>Loading states and empty states</li>
+                        <li>Marketing materials</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Section -->
+        <section id="application">
+            <p class="section-label">08 — Application</p>
+            <h2>Application</h2>
+            <p class="lead">This is an example of how the logo and brand elements may be used in brand applications such as business cards.</p>
+
+            <div class="app-grid">
+                <div class="business-card front">
+                    <img src="logos/Logo Files/svg/Color logo - no background.svg" alt="Ascendency IQ">
+                </div>
+                <div class="business-card back">
+                    <div class="card-header">
+                        <div>
+                            <p class="card-name">Your Name</p>
+                            <p class="card-title">Founder & CEO</p>
+                        </div>
+                        <div class="card-icon">
+                            <img src="logos/Logo Files/svg/Black logo - no background.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="card-contact">
+                        416 887 5555<br>
+                        123 address st.<br>
+                        email@example.com<br>
+                        yourwebsite.com
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-dark">
+                <img src="logos/Logo Files/svg/White logo - no background.svg" alt="Ascendency IQ">
+                <div class="contact-info">
+                    416 887 5555<br>
+                    123 address st.<br>
+                    email@example.com<br>
+                    yourwebsite.com
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <img src="logos/Logo Files/svg/White logo - no background.svg" alt="Ascendency IQ">
+            <p>Brand Guidelines v1.0 — March 2026</p>
+        </footer>
+    </main>
+
+    <!-- Copy Toast -->
+    <div class="copy-toast" id="copyToast">Copied to clipboard</div>
+
+    <script>
+        // Active navigation on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+
+        // Copy color to clipboard
+        function copyColor(hex, name) {
+            navigator.clipboard.writeText(hex).then(() => {
+                const toast = document.getElementById('copyToast');
+                toast.textContent = hex + ' copied';
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
