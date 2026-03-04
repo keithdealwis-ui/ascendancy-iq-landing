@@ -3,7 +3,11 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/", "destination": "/brand-guidelines.html" }
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "brand.ascendencyiq.ai" }],
+      "destination": "/brand-guidelines.html"
+    }
   ],
   "headers": [
     {
